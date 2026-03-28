@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techtips.Fun — Real tech, real experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #fefcf8;
+    --bg-2:     #f5f3ef;
+    --bg-3:     #edeae4;
+    --text:     #1a1714;
+    --text-2:   #4a4540;
+    --text-3:   #7a736a;
+    --accent:   #2d6a4f;
+    --accent-2: #e8f5f0;
+    --accent-3: #b7ddd0;
+    --border:   #e2ddd7;
+    --tag-bg:   #eef7f3;
+    --tag-text: #2d6a4f;
+    --mono:     'JetBrains Mono', monospace;
+    --sans:     'DM Sans', sans-serif;
+    --head:     'Space Grotesk', sans-serif;
+    --radius:   4px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(254,252,248,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .logo span {
+    color: var(--accent);
+  }
+  .logo-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-bottom: 1px;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  nav a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-3);
+    transition: color 0.15s;
+    letter-spacing: 0.01em;
+  }
+  nav a:hover { color: var(--text); }
+  nav a.active { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--text);
+    color: var(--bg) !important;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    transition: background 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--accent) !important; color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 24px 64px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: var(--head);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+    color: var(--text);
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--text-2);
+    max-width: 480px;
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.82rem;
+    color: var(--text-3);
+  }
+  .hero-meta .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-3), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: white;
+    flex-shrink: 0;
+  }
+  .hero-meta-text { display: flex; flex-direction: column; gap: 2px; }
+  .hero-meta-name { font-weight: 600; color: var(--text); font-size: 0.85rem; }
+
+  /* ── FILTER TABS ── */
+  .section-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .section-title {
+    font-family: var(--head);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .filter-tabs {
+    display: flex;
+    gap: 6px;
+  }
+  .filter-tab {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-3);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--sans);
+  }
+  .filter-tab:hover { border-color: var(--text-3); color: var(--text); }
+  .filter-tab.active {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg);
+  }
+
+  /* ── POST LIST ── */
+  .post-list { display: flex; flex-direction: column; }
+
+  .post-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+    transition: opacity 0.15s;
+    cursor: pointer;
+  }
+  .post-item:first-child { border-top: 1px solid var(--border); }
+  .post-item:hover .post-title { color: var(--accent); }
+  .post-item:hover .post-arrow { opacity: 1; transform: translateX(4px); }
+
+  .post-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 3px 9px;
+    border-radius: 3px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+  }
+  .tag.linux   { background: #fff3e0; color: #e65100; }
+  .tag.web     { background: #e8f4fd; color: #1565c0; }
+  .tag.tools   { background: #f3e5f5; color: #6a1b9a; }
+  .tag.tips    { background: #e8f5e9; color: #2e7d32; }
+  .tag.privacy { background: #fce4ec; color: #880e4f; }
+  .tag.ai      { background: #e0f7fa; color: #00695c; }
+
+  .post-title {
+    font-family: var(--head);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 8px;
+    transition: color 0.15s;
+  }
+  .post-excerpt {
+    font-size: 0.88rem;
+    color: var(--text-2);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+  .post-meta {
+    font-size: 0.75rem;
+    color: var(--text-3);
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .post-meta .sep { color: var(--border); }
+
+  .post-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    padding-top: 4px;
+  }
+  .post-date {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-3);
+    white-space: nowrap;
+  }
+  .post-arrow {
+    font-size: 1rem;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.15s, transform 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  /* ── FEATURED BADGE ── */
+  .post-item.featured {
+    background: var(--accent-2);
+    margin: 0 -16px;
+    padding: 28px 16px;
+    border-radius: var(--radius);
+    border: none !important;
+    margin-bottom: 2px;
+  }
+  .post-item.featured .post-title { font-size: 1.2rem; }
+  .featured-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .featured-label::before { content: '★'; font-size: 0.6rem; }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--text);
+    color: var(--bg);
+    border-radius: 8px;
+    padding: 40px 40px;
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .nl-left { flex: 1; }
+  .nl-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .nl-title {
+    font-family: var(--head);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .nl-sub { font-size: 0.85rem; color: #a09890; line-height: 1.6; }
+  .nl-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .nl-input {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: white;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .nl-input::placeholder { color: #6a6460; }
+  .nl-input:focus { border-color: var(--accent-3); }
+  .nl-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 10px 24px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .nl-btn:hover { background: #1a4d38; }
+
+  /* ── SIDEBAR TOPICS ── */
+  .layout {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 64px;
+    align-items: start;
+  }
+  /* For single column pages we skip sidebar */
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-logo {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: -0.04em;
+    color: var(--text);
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-links a {
+    font-size: 0.78rem;
+    color: var(--text-3);
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--text); }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--text-3);
+    width: 100%;
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 16px;
+  }
+
+  /* ── SINGLE POST PAGE (hidden by default) ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── POST DETAIL ── */
+  .post-detail {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--text-3);
+    margin-bottom: 40px;
+    transition: color 0.15s;
+    cursor: pointer;
+  }
+  .back-btn:hover { color: var(--text); }
+  .back-btn::before { content: '←'; }
+
+  .detail-tags { margin-bottom: 16px; }
+  .detail-title {
+    font-family: var(--head);
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    font-size: 0.82rem;
+    color: var(--text-3);
+  }
+  .detail-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-3), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--head); font-weight: 700; font-size: 0.72rem; color: white;
+  }
+  .detail-author { font-weight: 600; color: var(--text); }
+
+  .post-content h2 {
+    font-family: var(--head);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin: 40px 0 16px;
+  }
+  .post-content p {
+    font-size: 0.97rem;
+    color: var(--text-2);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .post-content code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--bg-2);
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--accent);
+  }
+  .post-content pre {
+    background: #1a1714;
+    border-radius: 6px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+  .post-content pre code {
+    background: none;
+    color: #a8d8b9;
+    font-size: 0.85rem;
+    padding: 0;
+  }
+  .post-content blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 20px;
+    margin: 24px 0;
+    color: var(--text-2);
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.8;
+  }
+  .post-content ul, .post-content ol {
+    padding-left: 24px;
+    margin-bottom: 20px;
+  }
+  .post-content li {
+    font-size: 0.97rem;
+    color: var(--text-2);
+    line-height: 1.85;
+    margin-bottom: 6px;
+  }
+
+  /* Related posts */
+  .related {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .related-title {
+    font-family: var(--head);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-3);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .related-card {
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .related-card:hover { border-color: var(--accent-3); background: var(--accent-2); }
+  .related-card .tag { margin-bottom: 8px; }
+  .related-card-title {
+    font-family: var(--head);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  /* ── ABOUT PAGE ── */
+  .about-page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 80px 24px 96px;
+  }
+  .about-header { margin-bottom: 48px; }
+  .about-avatar-lg {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-3), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--head); font-weight: 700; font-size: 1.8rem; color: white;
+    margin-bottom: 24px;
+  }
+  .about-name {
+    font-family: var(--head);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 8px;
+  }
+  .about-handle {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+  .about-bio {
+    font-size: 0.97rem;
+    color: var(--text-2);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .about-section-title {
+    font-family: var(--head);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 40px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-chip {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text-2);
+    transition: all 0.15s;
+  }
+  .skill-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 640px) {
+    .hero { padding: 48px 20px 40px; }
+    .section-main { padding: 32px 20px 64px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .post-item { grid-template-columns: 1fr; }
+    .post-right { flex-direction: row; align-items: center; justify-content: space-between; }
+    .post-arrow { opacity: 1; }
+    .newsletter { flex-direction: column; padding: 28px 24px; }
+    nav a:not(.nav-cta):not(.active) { display: none; }
+    .hero h1 { font-size: 1.9rem; }
+    .related-grid { grid-template-columns: 1fr; }
+    .footer-links { gap: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     HEADER (shared)
+════════════════════════════════ -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#" onclick="showPage('home')">
+      Techtips<span>.Fun</span>
+    </a>
+    <nav>
+      <a href="#" onclick="showPage('home')" class="active" id="nav-home">Posts</a>
+      <a href="#" onclick="showPage('about')" id="nav-about">About</a>
+      <a href="#" class="nav-cta">RSS ↗</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ════════════════════════════════
+     HOME PAGE
+════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">Real tech · Real experience</div>
+    <h1>Tips & tricks from<br>the <em>trenches</em> of tech</h1>
+    <p class="hero-sub">
+      No fluff, no sponsored jargon — just honest write-ups from someone who actually uses this stuff every day.
+    </p>
+    <div class="hero-meta">
+      <div class="avatar">S</div>
+      <div class="hero-meta-text">
+        <span class="hero-meta-name">saonbd</span>
+        <span>Writing about Linux, web, tools & more</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post Feed -->
+  <section class="section-main">
+    <div class="section-header">
+      <div class="section-title">All Posts</div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterPosts('all', this)">All</button>
+        <button class="filter-tab" onclick="filterPosts('linux', this)">Linux</button>
+        <button class="filter-tab" onclick="filterPosts('web', this)">Web</button>
+        <button class="filter-tab" onclick="filterPosts('tools', this)">Tools</button>
+        <button class="filter-tab" onclick="filterPosts('ai', this)">AI</button>
+      </div>
+    </div>
+
+    <div class="post-list" id="post-list">
+
+      <!-- Post 1 (Featured) -->
+      <div class="post-item featured" data-tags="linux,tips" onclick="showPost(1)">
+        <div class="post-body">
+          <div class="featured-label">Featured Post</div>
+          <div class="post-tags">
+            <span class="tag linux">linux</span>
+            <span class="tag tips">tips</span>
+          </div>
+          <div class="post-title">10 Linux terminal commands I use every single day</div>
+          <div class="post-excerpt">After years of daily Linux use, these are the commands that actually saved me time — not the ones every listicle keeps recycling.</div>
+          <div class="post-meta">
+            <span>8 min read</span>
+            <span class="sep">·</span>
+            <span>1.2k views</span>
+          </div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">Mar 27, 2026</div>
+          <div class="post-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="post-item" data-tags="web,tools" onclick="showPost(2)">
+        <div class="post-body">
+          <div class="post-tags">
+            <span class="tag web">web</span>
+            <span class="tag tools">tools</span>
+          </div>
+          <div class="post-title">Self-hosting your first web app — the no-nonsense guide</div>
+          <div class="post-excerpt">Nginx, a cheap VPS, and a few hours. Here's exactly how I deployed my first side project without touching expensive cloud platforms.</div>
+          <div class="post-meta">
+            <span>12 min read</span>
+            <span class="sep">·</span>
+            <span>876 views</span>
+          </div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">Mar 20, 2026</div>
+          <div class="post-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="post-item" data-tags="ai,tools" onclick="showPost(3)">
+        <div class="post-body">
+          <div class="post-tags">
+            <span class="tag ai">AI</span>
+            <span class="tag tools">tools</span>
+          </div>
+          <div class="post-title">I tested 6 AI coding assistants so you don't have to</div>
+          <div class="post-excerpt">GitHub Copilot, Cursor, Supermaven, Codeium — real benchmarks, real tasks, real frustrations. Here's my honest take.</div>
+          <div class="post-meta">
+            <span>10 min read</span>
+            <span class="sep">·</span>
+            <span>2.1k views</span>
+          </div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">Mar 14, 2026</div>
+          <div class="post-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="post-item" data-tags="linux,privacy" onclick="showPost(4)">
+        <div class="post-body">
+          <div class="post-tags">
+            <span class="tag linux">linux</span>
+            <span class="tag privacy">privacy</span>
+          </div>
+          <div class="post-title">Setting up a privacy-first home network with Pi-hole + WireGuard</div>
+          <div class="post-excerpt">Block ads at the DNS level across all devices and tunnel your traffic through your own VPN. Step-by-step, no prior networking knowledge required.</div>
+          <div class="post-meta">
+            <span>15 min read</span>
+            <span class="sep">·</span>
+            <span>543 views</span>
+          </div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">Mar 7, 2026</div>
+          <div class="post-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="post-item" data-tags="tools" onclick="showPost(5)">
+        <div class="post-body">
+          <div class="post-tags">
+            <span class="tag tools">tools</span>
+          </div>
+          <div class="post-title">My dev environment in 2026 — what changed, what stayed</div>
+          <div class="post-excerpt">Neovim is still my editor. Tmux is still my second brain. But a few new tools quietly became essential — here's my updated stack.</div>
+          <div class="post-meta">
+            <span>7 min read</span>
+            <span class="sep">·</span>
+            <span>689 views</span>
+          </div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">Feb 28, 2026</div>
+          <div class="post-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Post 6 -->
+      <div class="post-item" data-tags="web" onclick="showPost(6)">
+        <div class="post-body">
+          <div class="post-tags">
+            <span class="tag web">web</span>
+          </div>
+          <div class="post-title">CSS Grid vs Flexbox — when to actually use each one</div>
+          <div class="post-excerpt">I've seen this debate go on for years. Here's the practical answer: it depends on one thing, and that one thing makes everything clear.</div>
+          <div class="post-meta">
+            <span>6 min read</span>
+            <span class="sep">·</span>
+            <span>1.4k views</span>
+          </div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">Feb 19, 2026</div>
+          <div class="post-arrow">→</div>
+        </div>
+      </div>
+
+    </div><!-- /post-list -->
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+      <div class="nl-left">
+        <div class="nl-eyebrow">Stay in the loop</div>
+        <div class="nl-title">New post? You'll know first.</div>
+        <p class="nl-sub">No weekly email blasts. Only when saonbd publishes something worth reading.</p>
+        <div class="nl-form">
+          <input class="nl-input" type="email" placeholder="your@email.com">
+          <button class="nl-btn">Subscribe →</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════
+     SINGLE POST PAGE
+════════════════════════════════ -->
+<div class="page" id="page-post">
+  <div class="post-detail" id="post-detail-content">
+    <!-- Filled dynamically -->
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
+     ABOUT PAGE
+════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="about-page">
+    <div class="about-header">
+      <div class="about-avatar-lg">S</div>
+      <div class="about-name">saonbd</div>
+      <div class="about-handle">@saonbd · techtips.fun</div>
+    </div>
+
+    <p class="about-bio">
+      Hey! I'm saonbd — a tech enthusiast who loves tinkering with Linux, building things on the web, and finding the most efficient ways to get stuff done. I started this blog because I was tired of tutorials that glossed over the real problems you hit when things don't go as planned.
+    </p>
+    <p class="about-bio">
+      Everything here is from personal experience. No PR pitches, no affiliate links, no "10 tools you MUST use" listicles. Just real notes from the terminal, the browser console, and the occasional 2 AM debugging session.
+    </p>
+
+    <div class="about-section-title">What I write about</div>
+    <div class="skills-grid">
+      <span class="skill-chip">Linux</span>
+      <span class="skill-chip">Self-hosting</span>
+      <span class="skill-chip">Web Dev</span>
+      <span class="skill-chip">CLI Tools</span>
+      <span class="skill-chip">Privacy & Security</span>
+      <span class="skill-chip">AI Tools</span>
+      <span class="skill-chip">Dev Workflows</span>
+      <span class="skill-chip">Networking</span>
+      <span class="skill-chip">Open Source</span>
+    </div>
+
+    <div class="about-section-title">Find me online</div>
+    <div class="skills-grid">
+      <span class="skill-chip">GitHub ↗</span>
+      <span class="skill-chip">Twitter / X ↗</span>
+      <span class="skill-chip">RSS Feed ↗</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
+     FOOTER (shared)
+════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Techtips<span>.Fun</span></div>
+    <div class="footer-links">
+      <a href="#" onclick="showPage('home')">Posts</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#">RSS</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 saonbd · Techtips.Fun · Built with curiosity
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // ── Page router ──────────────────────────────
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.querySelectorAll('nav a[id^="nav-"]').forEach(a => a.classList.remove('active'));
+    const navEl = document.getElementById('nav-' + name);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Post data ─────────────────────────────────
+  const posts = {
+    1: {
+      tags: [{ cls: 'linux', label: 'linux' }, { cls: 'tips', label: 'tips' }],
+      title: '10 Linux terminal commands I use every single day',
+      date: 'March 27, 2026',
+      read: '8 min read',
+      content: `
+        <p>I've been using Linux as my daily driver for over five years. In that time, I've collected dozens of commands — but the ones below are the ones that actually stuck. These aren't the flashy ones from "top 100 Linux commands" listicles. These are the quiet workhorses.</p>
+        <h2>1. <code>tldr</code> — man pages for humans</h2>
+        <p>Forget reading a 500-line man page just to remember the right flag for <code>tar</code>. <code>tldr</code> gives you the 5 most common usages, instantly.</p>
+        <pre><code>$ tldr tar
+# Extract a tar archive:
+tar xf archive.tar.gz
+
+# Create a tar archive:
+tar czf output.tar.gz directory/</code></pre>
+        <h2>2. <code>fzf</code> — fuzzy finder that changes everything</h2>
+        <p>Pipe anything into <code>fzf</code> and get an interactive, fuzzy-searchable list. I use it for command history, file navigation, and branch switching in git.</p>
+        <pre><code># Search command history interactively
+$ history | fzf
+
+# Open any file quickly
+$ find . -type f | fzf | xargs nvim</code></pre>
+        <h2>3. <code>rg</code> (ripgrep) — search faster than grep</h2>
+        <p>Ripgrep is grep, but written in Rust and orders of magnitude faster on large codebases. It also respects <code>.gitignore</code> by default.</p>
+        <pre><code>$ rg "TODO" --type py</code></pre>
+        <blockquote>"The best tool is the one you actually remember to use."</blockquote>
+        <h2>4. <code>watch</code> — repeat a command automatically</h2>
+        <p>Running <code>df -h</code> every 30 seconds to watch disk usage? Let <code>watch</code> do it for you.</p>
+        <pre><code>$ watch -n 5 df -h</code></pre>
+        <h2>5. <code>htop</code> / <code>btop</code> — actually readable process viewer</h2>
+        <p>Plain <code>top</code> works, but <code>btop</code> is a visual upgrade that shows CPU, memory, and network in a clean TUI. Worth the install.</p>
+        <p>The remaining 5 commands are <code>z</code> (smart cd), <code>bat</code> (cat with syntax highlighting), <code>fd</code> (better find), <code>exa</code> (better ls), and <code>ncdu</code> (disk usage navigator). Each one earns its place.</p>
+      `,
+      related: [2, 4]
+    },
+    2: {
+      tags: [{ cls: 'web', label: 'web' }, { cls: 'tools', label: 'tools' }],
+      title: 'Self-hosting your first web app — the no-nonsense guide',
+      date: 'March 20, 2026',
+      read: '12 min read',
+      content: `
+        <p>I spent way too long being intimidated by self-hosting. It seemed like something only sysadmin wizards did. Then I actually tried it — and it took one afternoon. Here's the exact process I followed.</p>
+        <h2>What you need</h2>
+        <ul>
+          <li>A cheap VPS (I use Hetzner — €4/month for a 2-core, 4GB RAM instance)</li>
+          <li>A domain name (~$10/year)</li>
+          <li>Basic comfort with the terminal</li>
+        </ul>
+        <h2>Step 1 — Point your domain</h2>
+        <p>Add an A record in your DNS provider pointing to your VPS IP. Propagation usually takes under 5 minutes with Cloudflare.</p>
+        <h2>Step 2 — Install Nginx and Certbot</h2>
+        <pre><code>sudo apt update && sudo apt install nginx certbot python3-certbot-nginx -y
+sudo certbot --nginx -d yourdomain.com</code></pre>
+        <h2>Step 3 — Deploy your app</h2>
+        <p>For a Node.js app, use PM2 to keep it alive. For a Python app, use gunicorn + a systemd service. The pattern is always the same: run your app on a local port, then proxy it through Nginx.</p>
+        <pre><code># Nginx config snippet
+location / {
+    proxy_pass http://localhost:3000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Host $host;
+}</code></pre>
+        <blockquote>The hardest part isn't the setup — it's convincing yourself you can do it.</blockquote>
+        <p>That's genuinely it. You now have a live app with HTTPS, served from your own server, at a fraction of what AWS or Vercel would cost at scale.</p>
+      `,
+      related: [5, 6]
+    },
+    3: {
+      tags: [{ cls: 'ai', label: 'AI' }, { cls: 'tools', label: 'tools' }],
+      title: 'I tested 6 AI coding assistants so you don\'t have to',
+      date: 'March 14, 2026',
+      read: '10 min read',
+      content: `
+        <p>I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples — actual refactors, bug fixes, and new feature work. Here's what I found.</p>
+        <h2>The contenders</h2>
+        <ul>
+          <li><strong>GitHub Copilot</strong> — the OG, deeply integrated into VS Code</li>
+          <li><strong>Cursor</strong> — VS Code fork with AI at the core</li>
+          <li><strong>Supermaven</strong> — insanely fast completions</li>
+          <li><strong>Codeium</strong> — free and surprisingly good</li>
+          <li><strong>Aider</strong> — terminal-based, works with any editor</li>
+          <li><strong>Continue.dev</strong> — open source, self-hostable</li>
+        </ul>
+        <h2>Winner for daily use: Cursor</h2>
+        <p>It's not even close for complex tasks. The ability to open a codebase and ask "what does this function do?" or "refactor this to use async/await throughout" is genuinely game-changing. The inline edit mode (<code>Cmd+K</code>) is incredibly fast.</p>
+        <h2>Best free option: Codeium</h2>
+        <p>If you don't want to pay, Codeium is the answer. The completions are fast, context-aware, and available in basically every editor. I used it for a month before switching to Cursor.</p>
+        <blockquote>AI assistants don't replace knowing how to code. They replace looking up syntax and boilerplate — which is actually most of what coding is.</blockquote>
+        <p>The assistants that failed were the ones that couldn't handle multi-file context. That's the main differentiator in 2026.</p>
+      `,
+      related: [5, 1]
+    },
+    4: {
+      tags: [{ cls: 'linux', label: 'linux' }, { cls: 'privacy', label: 'privacy' }],
+      title: 'Setting up a privacy-first home network with Pi-hole + WireGuard',
+      date: 'March 7, 2026',
+      read: '15 min read',
+      content: `
+        <p>My home network used to be a factory-default router with no thought given to privacy. Now every device on it has DNS-level ad blocking, and I can tunnel into it from anywhere. Here's how I got there.</p>
+        <h2>Part 1: Pi-hole on a Raspberry Pi</h2>
+        <p>Pi-hole is a DNS sinkhole — it intercepts DNS requests for known ad/tracking domains and blocks them before they reach your browser. Install it with one command:</p>
+        <pre><code>curl -sSL https://install.pi-hole.net | bash</code></pre>
+        <p>Then set your router's DNS server to your Pi's IP address. Every device on the network gets ad-blocking automatically — including phones, smart TVs, and game consoles.</p>
+        <h2>Part 2: WireGuard VPN</h2>
+        <p>WireGuard is the modern VPN protocol — faster and simpler than OpenVPN. I run it on the same Pi, which means when I'm on public WiFi, I can tunnel back to my home network and route through Pi-hole.</p>
+        <pre><code># Generate keys
+wg genkey | tee private.key | wg pubkey > public.key
+
+# wg0.conf example
+[Interface]
+Address = 10.0.0.1/24
+ListenPort = 51820
+PrivateKey = &lt;your-private-key&gt;</code></pre>
+        <blockquote>Running your own VPN means the only one who can see your traffic is you.</blockquote>
+        <p>The whole setup took about 3 hours including troubleshooting. The result: zero ads on every device, a personal VPN I trust, and a deeper understanding of how DNS works.</p>
+      `,
+      related: [1, 5]
+    },
+    5: {
+      tags: [{ cls: 'tools', label: 'tools' }],
+      title: 'My dev environment in 2026 — what changed, what stayed',
+      date: 'February 28, 2026',
+      read: '7 min read',
+      content: `
+        <p>I do this annual audit of my dev setup. What tools did I keep? What did I finally ditch? What snuck in and became irreplaceable?</p>
+        <h2>What stayed</h2>
+        <ul>
+          <li><strong>Neovim</strong> — still my primary editor. LazyVim makes config maintenance bearable.</li>
+          <li><strong>Tmux</strong> — session management. I live in it.</li>
+          <li><strong>Zsh + Starship</strong> — fast prompt, great defaults.</li>
+          <li><strong>Git + lazygit</strong> — lazygit is the TUI that made me actually enjoy git.</li>
+        </ul>
+        <h2>What's new</h2>
+        <ul>
+          <li><strong>Zellij</strong> — I'm testing it as a tmux replacement. The UI is friendlier.</li>
+          <li><strong>Ghostty</strong> — fastest terminal I've used. GPU-rendered, minimal.</li>
+          <li><strong>Yazi</strong> — a terminal file manager that just works.</li>
+        </ul>
+        <h2>What I dropped</h2>
+        <p>VS Code is gone from my daily rotation. I used it for 4 years, but Neovim + Cursor cover everything it did, better. I also dropped Notion in favour of plain markdown files synced with Syncthing.</p>
+        <blockquote>The best dev environment is the one you stop thinking about.</blockquote>
+      `,
+      related: [3, 1]
+    },
+    6: {
+      tags: [{ cls: 'web', label: 'web' }],
+      title: 'CSS Grid vs Flexbox — when to actually use each one',
+      date: 'February 19, 2026',
+      read: '6 min read',
+      content: `
+        <p>This debate has been running since Grid shipped. Most explanations are either too vague ("Grid is 2D, Flexbox is 1D") or too prescriptive. Here's the mental model that finally made it click for me.</p>
+        <h2>The one rule that decides everything</h2>
+        <p><strong>Does the layout drive the content, or does the content drive the layout?</strong></p>
+        <p>If you have a defined grid and you're placing items into it — use CSS Grid. If you have a bunch of items and you're figuring out how they flow — use Flexbox.</p>
+        <h2>Grid examples</h2>
+        <pre><code>/* Classic 3-column layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Magazine layout */
+.magazine {
+  display: grid;
+  grid-template-areas:
+    "hero hero sidebar"
+    "post1 post2 sidebar";
+}</code></pre>
+        <h2>Flexbox examples</h2>
+        <pre><code>/* Nav bar items */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Card that stretches button to bottom */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.card-btn { margin-top: auto; }</code></pre>
+        <blockquote>In practice, you'll use both on the same page — Grid for the macro layout, Flexbox for the micro components.</blockquote>
+        <p>The moment I stopped treating them as competitors and started seeing them as different tools for different jobs, my CSS got dramatically cleaner.</p>
+      `,
+      related: [2, 5]
+    }
+  };
+
+  // ── Show single post ──────────────────────────
+  function showPost(id) {
+    const p = posts[id];
+    const tagsHtml = p.tags.map(t => `<span class="tag ${t.cls}">${t.label}</span>`).join('');
+    const relatedHtml = p.related.map(rid => {
+      const rp = posts[rid];
+      return `
+        <div class="related-card" onclick="showPost(${rid})">
+          <span class="tag ${rp.tags[0].cls}">${rp.tags[0].label}</span>
+          <div class="related-card-title">${rp.title}</div>
+        </div>`;
+    }).join('');
+
+    document.getElementById('post-detail-content').innerHTML = `
+      <span class="back-btn" onclick="showPage('home')"> Back to all posts</span>
+      <div class="detail-tags">${tagsHtml}</div>
+      <h1 class="detail-title">${p.title}</h1>
+      <div class="detail-meta">
+        <div class="detail-avatar">S</div>
+        <div>
+          <span class="detail-author">saonbd</span> &nbsp;·&nbsp;
+          ${p.date} &nbsp;·&nbsp; ${p.read}
+        </div>
+      </div>
+      <div class="post-content">${p.content}</div>
+      <div class="related">
+        <div class="related-title">Continue reading</div>
+        <div class="related-grid">${relatedHtml}</div>
+      </div>
+    `;
+    showPage('post');
+  }
+
+  // ── Filter posts ──────────────────────────────
+  function filterPosts(tag, btn) {
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.post-item').forEach(item => {
+      if (tag === 'all') {
+        item.style.display = '';
+      } else {
+        const tags = item.dataset.tags || '';
+        item.style.display = tags.includes(tag) ? '' : 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
