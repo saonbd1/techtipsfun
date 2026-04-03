@@ -318,7 +318,7 @@
     text-transform: uppercase;
     margin-bottom: 8px;
   }
-  .featured-label::before { content: '★'; font-size: 0.6rem; }
+  .featured-label::before { content: '\u2605'; font-size: 0.6rem; }
 
   /* ── NEWSLETTER ── */
   .newsletter {
@@ -462,7 +462,7 @@
     cursor: pointer;
   }
   .back-btn:hover { color: var(--text); }
-  .back-btn::before { content: '←'; }
+  .back-btn::before { content: '\u2190'; }
 
   .detail-tags { margin-bottom: 16px; }
   .detail-title {
@@ -554,12 +554,11 @@
   }
   .related-title {
     font-family: var(--head);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-3);
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    font-size: 0.75rem;
     margin-bottom: 20px;
   }
   .related-grid {
@@ -642,6 +641,149 @@
   }
   .skill-chip:hover { border-color: var(--accent); color: var(--accent); }
 
+  /* ── DASHBOARD ── */
+  .dash-page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+  .dash-title {
+    font-family: var(--head);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    color: var(--text);
+  }
+  .dash-field {
+    margin-bottom: 20px;
+  }
+  .dash-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 8px;
+  }
+  .dash-input {
+    width: 100%;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .dash-input:focus { border-color: var(--accent); }
+  .dash-textarea {
+    width: 100%;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    outline: none;
+    resize: vertical;
+    line-height: 1.6;
+    transition: border-color 0.15s;
+  }
+  .dash-textarea:focus { border-color: var(--accent); }
+  .dash-tag-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .dash-tag-chip {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 3px;
+    border: 1px dashed var(--border);
+    background: transparent;
+    color: var(--text-3);
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .dash-tag-chip.selected {
+    border-style: solid;
+    font-weight: 600;
+  }
+  .dash-tag-chip.selected[data-tag="linux"]   { background: #fff3e0; color: #e65100; border-color: #e65100; }
+  .dash-tag-chip.selected[data-tag="web"]     { background: #e8f4fd; color: #1565c0; border-color: #1565c0; }
+  .dash-tag-chip.selected[data-tag="tools"]   { background: #f3e5f5; color: #6a1b9a; border-color: #6a1b9a; }
+  .dash-tag-chip.selected[data-tag="tips"]    { background: #e8f5e9; color: #2e7d32; border-color: #2e7d32; }
+  .dash-tag-chip.selected[data-tag="privacy"] { background: #fce4ec; color: #880e4f; border-color: #880e4f; }
+  .dash-tag-chip.selected[data-tag="ai"]      { background: #e0f7fa; color: #00695c; border-color: #00695c; }
+  .dash-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .dash-btn {
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none;
+  }
+  .dash-btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+  .dash-btn-primary:hover { background: #1a4d38; }
+  .dash-btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .dash-btn-secondary:hover { border-color: var(--text); }
+  .dash-btn-danger {
+    background: transparent;
+    color: #c62828;
+    border: 1px solid #e57373;
+  }
+  .dash-btn-danger:hover { background: #fce4ec; }
+  .dash-status {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+    min-height: 1.4em;
+  }
+  .dash-select {
+    width: 100%;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .dash-select:focus { border-color: var(--accent); }
+  .dash-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 28px 0;
+  }
+
   /* ── MOBILE ── */
   @media (max-width: 640px) {
     .hero { padding: 48px 20px 40px; }
@@ -655,6 +797,9 @@
     .hero h1 { font-size: 1.9rem; }
     .related-grid { grid-template-columns: 1fr; }
     .footer-links { gap: 16px; }
+    .dash-page { padding: 40px 20px 64px; }
+    .dash-actions { flex-direction: column; }
+    .dash-btn { width: 100%; text-align: center; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -669,7 +814,7 @@
 ════════════════════════════════ -->
 <header>
   <div class="header-inner">
-    <a class="logo" href="#" onclick="showPage('home')">
+    <a class="logo" href="#" onclick="showPage('home')" ondblclick="openDashboard()">
       Techtips<span>.Fun</span>
     </a>
     <nav>
@@ -715,133 +860,8 @@
     </div>
 
     <div class="post-list" id="post-list">
-
-      <!-- Post 1 (Featured) -->
-      <div class="post-item featured" data-tags="linux,tips" onclick="showPost(1)">
-        <div class="post-body">
-          <div class="featured-label">Featured Post</div>
-          <div class="post-tags">
-            <span class="tag linux">linux</span>
-            <span class="tag tips">tips</span>
-          </div>
-          <div class="post-title">10 Linux terminal commands I use every single day</div>
-          <div class="post-excerpt">After years of daily Linux use, these are the commands that actually saved me time — not the ones every listicle keeps recycling.</div>
-          <div class="post-meta">
-            <span>8 min read</span>
-            <span class="sep">·</span>
-            <span>1.2k views</span>
-          </div>
-        </div>
-        <div class="post-right">
-          <div class="post-date">Mar 27, 2026</div>
-          <div class="post-arrow">→</div>
-        </div>
-      </div>
-
-      <!-- Post 2 -->
-      <div class="post-item" data-tags="web,tools" onclick="showPost(2)">
-        <div class="post-body">
-          <div class="post-tags">
-            <span class="tag web">web</span>
-            <span class="tag tools">tools</span>
-          </div>
-          <div class="post-title">Self-hosting your first web app — the no-nonsense guide</div>
-          <div class="post-excerpt">Nginx, a cheap VPS, and a few hours. Here's exactly how I deployed my first side project without touching expensive cloud platforms.</div>
-          <div class="post-meta">
-            <span>12 min read</span>
-            <span class="sep">·</span>
-            <span>876 views</span>
-          </div>
-        </div>
-        <div class="post-right">
-          <div class="post-date">Mar 20, 2026</div>
-          <div class="post-arrow">→</div>
-        </div>
-      </div>
-
-      <!-- Post 3 -->
-      <div class="post-item" data-tags="ai,tools" onclick="showPost(3)">
-        <div class="post-body">
-          <div class="post-tags">
-            <span class="tag ai">AI</span>
-            <span class="tag tools">tools</span>
-          </div>
-          <div class="post-title">I tested 6 AI coding assistants so you don't have to</div>
-          <div class="post-excerpt">GitHub Copilot, Cursor, Supermaven, Codeium — real benchmarks, real tasks, real frustrations. Here's my honest take.</div>
-          <div class="post-meta">
-            <span>10 min read</span>
-            <span class="sep">·</span>
-            <span>2.1k views</span>
-          </div>
-        </div>
-        <div class="post-right">
-          <div class="post-date">Mar 14, 2026</div>
-          <div class="post-arrow">→</div>
-        </div>
-      </div>
-
-      <!-- Post 4 -->
-      <div class="post-item" data-tags="linux,privacy" onclick="showPost(4)">
-        <div class="post-body">
-          <div class="post-tags">
-            <span class="tag linux">linux</span>
-            <span class="tag privacy">privacy</span>
-          </div>
-          <div class="post-title">Setting up a privacy-first home network with Pi-hole + WireGuard</div>
-          <div class="post-excerpt">Block ads at the DNS level across all devices and tunnel your traffic through your own VPN. Step-by-step, no prior networking knowledge required.</div>
-          <div class="post-meta">
-            <span>15 min read</span>
-            <span class="sep">·</span>
-            <span>543 views</span>
-          </div>
-        </div>
-        <div class="post-right">
-          <div class="post-date">Mar 7, 2026</div>
-          <div class="post-arrow">→</div>
-        </div>
-      </div>
-
-      <!-- Post 5 -->
-      <div class="post-item" data-tags="tools" onclick="showPost(5)">
-        <div class="post-body">
-          <div class="post-tags">
-            <span class="tag tools">tools</span>
-          </div>
-          <div class="post-title">My dev environment in 2026 — what changed, what stayed</div>
-          <div class="post-excerpt">Neovim is still my editor. Tmux is still my second brain. But a few new tools quietly became essential — here's my updated stack.</div>
-          <div class="post-meta">
-            <span>7 min read</span>
-            <span class="sep">·</span>
-            <span>689 views</span>
-          </div>
-        </div>
-        <div class="post-right">
-          <div class="post-date">Feb 28, 2026</div>
-          <div class="post-arrow">→</div>
-        </div>
-      </div>
-
-      <!-- Post 6 -->
-      <div class="post-item" data-tags="web" onclick="showPost(6)">
-        <div class="post-body">
-          <div class="post-tags">
-            <span class="tag web">web</span>
-          </div>
-          <div class="post-title">CSS Grid vs Flexbox — when to actually use each one</div>
-          <div class="post-excerpt">I've seen this debate go on for years. Here's the practical answer: it depends on one thing, and that one thing makes everything clear.</div>
-          <div class="post-meta">
-            <span>6 min read</span>
-            <span class="sep">·</span>
-            <span>1.4k views</span>
-          </div>
-        </div>
-        <div class="post-right">
-          <div class="post-date">Feb 19, 2026</div>
-          <div class="post-arrow">→</div>
-        </div>
-      </div>
-
-    </div><!-- /post-list -->
+      <!-- Rendered dynamically by renderPostList() -->
+    </div>
 
     <!-- Newsletter -->
     <div class="newsletter">
@@ -912,6 +932,71 @@
 
 
 <!-- ════════════════════════════════
+     DASHBOARD PAGE
+════════════════════════════════ -->
+<div class="page" id="page-dashboard">
+  <div class="dash-page">
+    <span class="back-btn" onclick="showPage('home')"> Back to posts</span>
+    <h1 class="dash-title">Dashboard</h1>
+
+    <div class="dash-field">
+      <label class="dash-label">Select Post</label>
+      <select class="dash-select" id="dash-post-select" onchange="loadPostIntoForm(this.value)">
+        <option value="new">+ New Post</option>
+      </select>
+    </div>
+
+    <hr class="dash-divider">
+
+    <div class="dash-field">
+      <label class="dash-label">Title</label>
+      <input class="dash-input" type="text" id="dash-title" placeholder="Post title...">
+    </div>
+
+    <div class="dash-field">
+      <label class="dash-label">Excerpt</label>
+      <textarea class="dash-textarea" id="dash-excerpt" rows="2" placeholder="Short summary for the post list..."></textarea>
+    </div>
+
+    <div class="dash-field">
+      <label class="dash-label">Tags</label>
+      <div class="dash-tag-chips" id="dash-tags">
+        <span class="dash-tag-chip" data-tag="linux" onclick="toggleDashTag(this)">linux</span>
+        <span class="dash-tag-chip" data-tag="web" onclick="toggleDashTag(this)">web</span>
+        <span class="dash-tag-chip" data-tag="tools" onclick="toggleDashTag(this)">tools</span>
+        <span class="dash-tag-chip" data-tag="tips" onclick="toggleDashTag(this)">tips</span>
+        <span class="dash-tag-chip" data-tag="privacy" onclick="toggleDashTag(this)">privacy</span>
+        <span class="dash-tag-chip" data-tag="ai" onclick="toggleDashTag(this)">AI</span>
+      </div>
+    </div>
+
+    <div class="dash-field" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div>
+        <label class="dash-label">Read Time</label>
+        <input class="dash-input" type="text" id="dash-read" placeholder="e.g. 8 min read">
+      </div>
+      <div>
+        <label class="dash-label">Date</label>
+        <input class="dash-input" type="text" id="dash-date" placeholder="e.g. April 3, 2026">
+      </div>
+    </div>
+
+    <div class="dash-field">
+      <label class="dash-label">Content (HTML)</label>
+      <textarea class="dash-textarea" id="dash-content" rows="18" placeholder="<p>Write your post content in HTML...</p>"></textarea>
+    </div>
+
+    <div class="dash-actions">
+      <button class="dash-btn dash-btn-primary" onclick="saveDashPost()">Save Post</button>
+      <button class="dash-btn dash-btn-secondary" onclick="previewDashPost()">Preview</button>
+      <button class="dash-btn dash-btn-danger" id="dash-delete-btn" style="display:none;" onclick="deleteDashPost()">Delete Post</button>
+    </div>
+    <div class="dash-status" id="dash-status"></div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
      FOOTER (shared)
 ════════════════════════════════ -->
 <footer>
@@ -923,7 +1008,7 @@
       <a href="#">RSS</a>
     </div>
     <div class="footer-copy">
-      © 2026 saonbd · Techtips.Fun · Built with curiosity
+      &copy; 2026 saonbd &middot; Techtips.Fun &middot; Built with curiosity
     </div>
   </div>
 </footer>
@@ -941,15 +1026,18 @@
   }
 
   // ── Post data ─────────────────────────────────
-  const posts = {
+  const HARDCODED_IDS = [1,2,3,4,5,6];
+  let posts = {
     1: {
       tags: [{ cls: 'linux', label: 'linux' }, { cls: 'tips', label: 'tips' }],
       title: '10 Linux terminal commands I use every single day',
+      excerpt: 'After years of daily Linux use, these are the commands that actually saved me time \u2014 not the ones every listicle keeps recycling.',
       date: 'March 27, 2026',
       read: '8 min read',
+      featured: true,
       content: `
-        <p>I've been using Linux as my daily driver for over five years. In that time, I've collected dozens of commands — but the ones below are the ones that actually stuck. These aren't the flashy ones from "top 100 Linux commands" listicles. These are the quiet workhorses.</p>
-        <h2>1. <code>tldr</code> — man pages for humans</h2>
+        <p>I\u2019ve been using Linux as my daily driver for over five years. In that time, I\u2019ve collected dozens of commands \u2014 but the ones below are the ones that actually stuck. These aren\u2019t the flashy ones from \u201ctop 100 Linux commands\u201d listicles. These are the quiet workhorses.</p>
+        <h2>1. <code>tldr</code> \u2014 man pages for humans</h2>
         <p>Forget reading a 500-line man page just to remember the right flag for <code>tar</code>. <code>tldr</code> gives you the 5 most common usages, instantly.</p>
         <pre><code>$ tldr tar
 # Extract a tar archive:
@@ -957,21 +1045,21 @@ tar xf archive.tar.gz
 
 # Create a tar archive:
 tar czf output.tar.gz directory/</code></pre>
-        <h2>2. <code>fzf</code> — fuzzy finder that changes everything</h2>
+        <h2>2. <code>fzf</code> \u2014 fuzzy finder that changes everything</h2>
         <p>Pipe anything into <code>fzf</code> and get an interactive, fuzzy-searchable list. I use it for command history, file navigation, and branch switching in git.</p>
         <pre><code># Search command history interactively
 $ history | fzf
 
 # Open any file quickly
 $ find . -type f | fzf | xargs nvim</code></pre>
-        <h2>3. <code>rg</code> (ripgrep) — search faster than grep</h2>
+        <h2>3. <code>rg</code> (ripgrep) \u2014 search faster than grep</h2>
         <p>Ripgrep is grep, but written in Rust and orders of magnitude faster on large codebases. It also respects <code>.gitignore</code> by default.</p>
         <pre><code>$ rg "TODO" --type py</code></pre>
-        <blockquote>"The best tool is the one you actually remember to use."</blockquote>
-        <h2>4. <code>watch</code> — repeat a command automatically</h2>
+        <blockquote>\u201cThe best tool is the one you actually remember to use.\u201d</blockquote>
+        <h2>4. <code>watch</code> \u2014 repeat a command automatically</h2>
         <p>Running <code>df -h</code> every 30 seconds to watch disk usage? Let <code>watch</code> do it for you.</p>
         <pre><code>$ watch -n 5 df -h</code></pre>
-        <h2>5. <code>htop</code> / <code>btop</code> — actually readable process viewer</h2>
+        <h2>5. <code>htop</code> / <code>btop</code> \u2014 actually readable process viewer</h2>
         <p>Plain <code>top</code> works, but <code>btop</code> is a visual upgrade that shows CPU, memory, and network in a clean TUI. Worth the install.</p>
         <p>The remaining 5 commands are <code>z</code> (smart cd), <code>bat</code> (cat with syntax highlighting), <code>fd</code> (better find), <code>exa</code> (better ls), and <code>ncdu</code> (disk usage navigator). Each one earns its place.</p>
       `,
@@ -979,23 +1067,24 @@ $ find . -type f | fzf | xargs nvim</code></pre>
     },
     2: {
       tags: [{ cls: 'web', label: 'web' }, { cls: 'tools', label: 'tools' }],
-      title: 'Self-hosting your first web app — the no-nonsense guide',
+      title: 'Self-hosting your first web app \u2014 the no-nonsense guide',
+      excerpt: 'Nginx, a cheap VPS, and a few hours. Here\u2019s exactly how I deployed my first side project without touching expensive cloud platforms.',
       date: 'March 20, 2026',
       read: '12 min read',
       content: `
-        <p>I spent way too long being intimidated by self-hosting. It seemed like something only sysadmin wizards did. Then I actually tried it — and it took one afternoon. Here's the exact process I followed.</p>
+        <p>I spent way too long being intimidated by self-hosting. It seemed like something only sysadmin wizards did. Then I actually tried it \u2014 and it took one afternoon. Here\u2019s the exact process I followed.</p>
         <h2>What you need</h2>
         <ul>
-          <li>A cheap VPS (I use Hetzner — €4/month for a 2-core, 4GB RAM instance)</li>
+          <li>A cheap VPS (I use Hetzner \u2014 \u20ac4/month for a 2-core, 4GB RAM instance)</li>
           <li>A domain name (~$10/year)</li>
           <li>Basic comfort with the terminal</li>
         </ul>
-        <h2>Step 1 — Point your domain</h2>
+        <h2>Step 1 \u2014 Point your domain</h2>
         <p>Add an A record in your DNS provider pointing to your VPS IP. Propagation usually takes under 5 minutes with Cloudflare.</p>
-        <h2>Step 2 — Install Nginx and Certbot</h2>
+        <h2>Step 2 \u2014 Install Nginx and Certbot</h2>
         <pre><code>sudo apt update && sudo apt install nginx certbot python3-certbot-nginx -y
 sudo certbot --nginx -d yourdomain.com</code></pre>
-        <h2>Step 3 — Deploy your app</h2>
+        <h2>Step 3 \u2014 Deploy your app</h2>
         <p>For a Node.js app, use PM2 to keep it alive. For a Python app, use gunicorn + a systemd service. The pattern is always the same: run your app on a local port, then proxy it through Nginx.</p>
         <pre><code># Nginx config snippet
 location / {
@@ -1004,49 +1093,51 @@ location / {
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Host $host;
 }</code></pre>
-        <blockquote>The hardest part isn't the setup — it's convincing yourself you can do it.</blockquote>
-        <p>That's genuinely it. You now have a live app with HTTPS, served from your own server, at a fraction of what AWS or Vercel would cost at scale.</p>
+        <blockquote>The hardest part isn\u2019t the setup \u2014 it\u2019s convincing yourself you can do it.</blockquote>
+        <p>That\u2019s genuinely it. You now have a live app with HTTPS, served from your own server, at a fraction of what AWS or Vercel would cost at scale.</p>
       `,
       related: [5, 6]
     },
     3: {
       tags: [{ cls: 'ai', label: 'AI' }, { cls: 'tools', label: 'tools' }],
-      title: 'I tested 6 AI coding assistants so you don\'t have to',
+      title: 'I tested 6 AI coding assistants so you don\u2019t have to',
+      excerpt: 'GitHub Copilot, Cursor, Supermaven, Codeium \u2014 real benchmarks, real tasks, real frustrations. Here\u2019s my honest take.',
       date: 'March 14, 2026',
       read: '10 min read',
       content: `
-        <p>I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples — actual refactors, bug fixes, and new feature work. Here's what I found.</p>
+        <p>I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples \u2014 actual refactors, bug fixes, and new feature work. Here\u2019s what I found.</p>
         <h2>The contenders</h2>
         <ul>
-          <li><strong>GitHub Copilot</strong> — the OG, deeply integrated into VS Code</li>
-          <li><strong>Cursor</strong> — VS Code fork with AI at the core</li>
-          <li><strong>Supermaven</strong> — insanely fast completions</li>
-          <li><strong>Codeium</strong> — free and surprisingly good</li>
-          <li><strong>Aider</strong> — terminal-based, works with any editor</li>
-          <li><strong>Continue.dev</strong> — open source, self-hostable</li>
+          <li><strong>GitHub Copilot</strong> \u2014 the OG, deeply integrated into VS Code</li>
+          <li><strong>Cursor</strong> \u2014 VS Code fork with AI at the core</li>
+          <li><strong>Supermaven</strong> \u2014 insanely fast completions</li>
+          <li><strong>Codeium</strong> \u2014 free and surprisingly good</li>
+          <li><strong>Aider</strong> \u2014 terminal-based, works with any editor</li>
+          <li><strong>Continue.dev</strong> \u2014 open source, self-hostable</li>
         </ul>
         <h2>Winner for daily use: Cursor</h2>
-        <p>It's not even close for complex tasks. The ability to open a codebase and ask "what does this function do?" or "refactor this to use async/await throughout" is genuinely game-changing. The inline edit mode (<code>Cmd+K</code>) is incredibly fast.</p>
+        <p>It\u2019s not even close for complex tasks. The ability to open a codebase and ask \u201cwhat does this function do?\u201d or \u201crefactor this to use async/await throughout\u201d is genuinely game-changing. The inline edit mode (<code>Cmd+K</code>) is incredibly fast.</p>
         <h2>Best free option: Codeium</h2>
-        <p>If you don't want to pay, Codeium is the answer. The completions are fast, context-aware, and available in basically every editor. I used it for a month before switching to Cursor.</p>
-        <blockquote>AI assistants don't replace knowing how to code. They replace looking up syntax and boilerplate — which is actually most of what coding is.</blockquote>
-        <p>The assistants that failed were the ones that couldn't handle multi-file context. That's the main differentiator in 2026.</p>
+        <p>If you don\u2019t want to pay, Codeium is the answer. The completions are fast, context-aware, and available in basically every editor. I used it for a month before switching to Cursor.</p>
+        <blockquote>AI assistants don\u2019t replace knowing how to code. They replace looking up syntax and boilerplate \u2014 which is actually most of what coding is.</blockquote>
+        <p>The assistants that failed were the ones that couldn\u2019t handle multi-file context. That\u2019s the main differentiator in 2026.</p>
       `,
       related: [5, 1]
     },
     4: {
       tags: [{ cls: 'linux', label: 'linux' }, { cls: 'privacy', label: 'privacy' }],
       title: 'Setting up a privacy-first home network with Pi-hole + WireGuard',
+      excerpt: 'Block ads at the DNS level across all devices and tunnel your traffic through your own VPN. Step-by-step, no prior networking knowledge required.',
       date: 'March 7, 2026',
       read: '15 min read',
       content: `
-        <p>My home network used to be a factory-default router with no thought given to privacy. Now every device on it has DNS-level ad blocking, and I can tunnel into it from anywhere. Here's how I got there.</p>
+        <p>My home network used to be a factory-default router with no thought given to privacy. Now every device on it has DNS-level ad blocking, and I can tunnel into it from anywhere. Here\u2019s how I got there.</p>
         <h2>Part 1: Pi-hole on a Raspberry Pi</h2>
-        <p>Pi-hole is a DNS sinkhole — it intercepts DNS requests for known ad/tracking domains and blocks them before they reach your browser. Install it with one command:</p>
+        <p>Pi-hole is a DNS sinkhole \u2014 it intercepts DNS requests for known ad/tracking domains and blocks them before they reach your browser. Install it with one command:</p>
         <pre><code>curl -sSL https://install.pi-hole.net | bash</code></pre>
-        <p>Then set your router's DNS server to your Pi's IP address. Every device on the network gets ad-blocking automatically — including phones, smart TVs, and game consoles.</p>
+        <p>Then set your router\u2019s DNS server to your Pi\u2019s IP address. Every device on the network gets ad-blocking automatically \u2014 including phones, smart TVs, and game consoles.</p>
         <h2>Part 2: WireGuard VPN</h2>
-        <p>WireGuard is the modern VPN protocol — faster and simpler than OpenVPN. I run it on the same Pi, which means when I'm on public WiFi, I can tunnel back to my home network and route through Pi-hole.</p>
+        <p>WireGuard is the modern VPN protocol \u2014 faster and simpler than OpenVPN. I run it on the same Pi, which means when I\u2019m on public WiFi, I can tunnel back to my home network and route through Pi-hole.</p>
         <pre><code># Generate keys
 wg genkey | tee private.key | wg pubkey > public.key
 
@@ -1062,23 +1153,24 @@ PrivateKey = &lt;your-private-key&gt;</code></pre>
     },
     5: {
       tags: [{ cls: 'tools', label: 'tools' }],
-      title: 'My dev environment in 2026 — what changed, what stayed',
+      title: 'My dev environment in 2026 \u2014 what changed, what stayed',
+      excerpt: 'Neovim is still my editor. Tmux is still my second brain. But a few new tools quietly became essential \u2014 here\u2019s my updated stack.',
       date: 'February 28, 2026',
       read: '7 min read',
       content: `
         <p>I do this annual audit of my dev setup. What tools did I keep? What did I finally ditch? What snuck in and became irreplaceable?</p>
         <h2>What stayed</h2>
         <ul>
-          <li><strong>Neovim</strong> — still my primary editor. LazyVim makes config maintenance bearable.</li>
-          <li><strong>Tmux</strong> — session management. I live in it.</li>
-          <li><strong>Zsh + Starship</strong> — fast prompt, great defaults.</li>
-          <li><strong>Git + lazygit</strong> — lazygit is the TUI that made me actually enjoy git.</li>
+          <li><strong>Neovim</strong> \u2014 still my primary editor. LazyVim makes config maintenance bearable.</li>
+          <li><strong>Tmux</strong> \u2014 session management. I live in it.</li>
+          <li><strong>Zsh + Starship</strong> \u2014 fast prompt, great defaults.</li>
+          <li><strong>Git + lazygit</strong> \u2014 lazygit is the TUI that made me actually enjoy git.</li>
         </ul>
-        <h2>What's new</h2>
+        <h2>What\u2019s new</h2>
         <ul>
-          <li><strong>Zellij</strong> — I'm testing it as a tmux replacement. The UI is friendlier.</li>
-          <li><strong>Ghostty</strong> — fastest terminal I've used. GPU-rendered, minimal.</li>
-          <li><strong>Yazi</strong> — a terminal file manager that just works.</li>
+          <li><strong>Zellij</strong> \u2014 I\u2019m testing it as a tmux replacement. The UI is friendlier.</li>
+          <li><strong>Ghostty</strong> \u2014 fastest terminal I\u2019ve used. GPU-rendered, minimal.</li>
+          <li><strong>Yazi</strong> \u2014 a terminal file manager that just works.</li>
         </ul>
         <h2>What I dropped</h2>
         <p>VS Code is gone from my daily rotation. I used it for 4 years, but Neovim + Cursor cover everything it did, better. I also dropped Notion in favour of plain markdown files synced with Syncthing.</p>
@@ -1088,14 +1180,15 @@ PrivateKey = &lt;your-private-key&gt;</code></pre>
     },
     6: {
       tags: [{ cls: 'web', label: 'web' }],
-      title: 'CSS Grid vs Flexbox — when to actually use each one',
+      title: 'CSS Grid vs Flexbox \u2014 when to actually use each one',
+      excerpt: 'I\u2019ve seen this debate go on for years. Here\u2019s the practical answer: it depends on one thing, and that one thing makes everything clear.',
       date: 'February 19, 2026',
       read: '6 min read',
       content: `
-        <p>This debate has been running since Grid shipped. Most explanations are either too vague ("Grid is 2D, Flexbox is 1D") or too prescriptive. Here's the mental model that finally made it click for me.</p>
+        <p>This debate has been running since Grid shipped. Most explanations are either too vague (\u201cGrid is 2D, Flexbox is 1D\u201d) or too prescriptive. Here\u2019s the mental model that finally made it click for me.</p>
         <h2>The one rule that decides everything</h2>
         <p><strong>Does the layout drive the content, or does the content drive the layout?</strong></p>
-        <p>If you have a defined grid and you're placing items into it — use CSS Grid. If you have a bunch of items and you're figuring out how they flow — use Flexbox.</p>
+        <p>If you have a defined grid and you\u2019re placing items into it \u2014 use CSS Grid. If you have a bunch of items and you\u2019re figuring out how they flow \u2014 use Flexbox.</p>
         <h2>Grid examples</h2>
         <pre><code>/* Classic 3-column layout */
 .grid {
@@ -1125,43 +1218,101 @@ PrivateKey = &lt;your-private-key&gt;</code></pre>
   flex-direction: column;
 }
 .card-btn { margin-top: auto; }</code></pre>
-        <blockquote>In practice, you'll use both on the same page — Grid for the macro layout, Flexbox for the micro components.</blockquote>
+        <blockquote>In practice, you\u2019ll use both on the same page \u2014 Grid for the macro layout, Flexbox for the micro components.</blockquote>
         <p>The moment I stopped treating them as competitors and started seeing them as different tools for different jobs, my CSS got dramatically cleaner.</p>
       `,
       related: [2, 5]
     }
   };
 
+  // ── localStorage merge ─────────────────────────
+  function loadLocalStoragePosts() {
+    try {
+      const saved = JSON.parse(localStorage.getItem('techtips_posts') || '{}');
+      Object.keys(saved).forEach(id => {
+        posts[id] = saved[id];
+      });
+    } catch(e) { /* ignore parse errors */ }
+  }
+
+  function saveToLocalStorage(id, post) {
+    const saved = JSON.parse(localStorage.getItem('techtips_posts') || '{}');
+    saved[id] = post;
+    localStorage.setItem('techtips_posts', JSON.stringify(saved));
+  }
+
+  function removeFromLocalStorage(id) {
+    const saved = JSON.parse(localStorage.getItem('techtips_posts') || '{}');
+    delete saved[id];
+    localStorage.setItem('techtips_posts', JSON.stringify(saved));
+  }
+
+  // ── Render post list dynamically ───────────────
+  function formatShortDate(dateStr) {
+    const d = new Date(dateStr);
+    if (isNaN(d)) return dateStr;
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function renderPostList() {
+    const ids = Object.keys(posts);
+    ids.sort((a, b) => new Date(posts[b].date).getTime() - new Date(posts[a].date).getTime());
+
+    let html = '';
+    ids.forEach(id => {
+      const p = posts[id];
+      const tagClasses = p.tags.map(t => t.cls).join(',');
+      const tagsHtml = p.tags.map(t => '<span class="tag ' + t.cls + '">' + t.label + '</span>').join('');
+      const isFeatured = p.featured === true;
+      const excerpt = p.excerpt || '';
+
+      html += '<div class="post-item' + (isFeatured ? ' featured' : '') + '" data-tags="' + tagClasses + '" onclick="showPost(\'' + id + '\')">';
+      html += '<div class="post-body">';
+      if (isFeatured) {
+        html += '<div class="featured-label">Featured Post</div>';
+      }
+      html += '<div class="post-tags">' + tagsHtml + '</div>';
+      html += '<div class="post-title">' + p.title + '</div>';
+      html += '<div class="post-excerpt">' + excerpt + '</div>';
+      html += '<div class="post-meta"><span>' + p.read + '</span></div>';
+      html += '</div>';
+      html += '<div class="post-right">';
+      html += '<div class="post-date">' + formatShortDate(p.date) + '</div>';
+      html += '<div class="post-arrow">\u2192</div>';
+      html += '</div>';
+      html += '</div>';
+    });
+
+    document.getElementById('post-list').innerHTML = html;
+  }
+
   // ── Show single post ──────────────────────────
   function showPost(id) {
     const p = posts[id];
-    const tagsHtml = p.tags.map(t => `<span class="tag ${t.cls}">${t.label}</span>`).join('');
-    const relatedHtml = p.related.map(rid => {
+    if (!p) return;
+    const tagsHtml = p.tags.map(t => '<span class="tag ' + t.cls + '">' + t.label + '</span>').join('');
+    const relatedArr = (p.related || []).filter(rid => posts[rid]);
+    const relatedHtml = relatedArr.map(rid => {
       const rp = posts[rid];
-      return `
-        <div class="related-card" onclick="showPost(${rid})">
-          <span class="tag ${rp.tags[0].cls}">${rp.tags[0].label}</span>
-          <div class="related-card-title">${rp.title}</div>
-        </div>`;
+      return '<div class="related-card" onclick="showPost(\'' + rid + '\')">' +
+        '<span class="tag ' + rp.tags[0].cls + '">' + rp.tags[0].label + '</span>' +
+        '<div class="related-card-title">' + rp.title + '</div>' +
+        '</div>';
     }).join('');
 
-    document.getElementById('post-detail-content').innerHTML = `
-      <span class="back-btn" onclick="showPage('home')"> Back to all posts</span>
-      <div class="detail-tags">${tagsHtml}</div>
-      <h1 class="detail-title">${p.title}</h1>
-      <div class="detail-meta">
-        <img class="detail-avatar" src="https://lh3.googleusercontent.com/a/ACg8ocL4o7Za_4IoiVWY3MdhZDShVji8EJOXn84PsfzQQEtBn6gfCSkZ=s288-c-no" alt="saonbd">
-        <div>
-          <span class="detail-author">saonbd</span> &nbsp;·&nbsp;
-          ${p.date} &nbsp;·&nbsp; ${p.read}
-        </div>
-      </div>
-      <div class="post-content">${p.content}</div>
-      <div class="related">
-        <div class="related-title">Continue reading</div>
-        <div class="related-grid">${relatedHtml}</div>
-      </div>
-    `;
+    const backTarget = id === 'preview' ? 'dashboard' : 'home';
+    document.getElementById('post-detail-content').innerHTML =
+      '<span class="back-btn" onclick="showPage(\'' + backTarget + '\')"> Back to ' + (backTarget === 'dashboard' ? 'dashboard' : 'all posts') + '</span>' +
+      '<div class="detail-tags">' + tagsHtml + '</div>' +
+      '<h1 class="detail-title">' + p.title + '</h1>' +
+      '<div class="detail-meta">' +
+        '<img class="detail-avatar" src="https://lh3.googleusercontent.com/a/ACg8ocL4o7Za_4IoiVWY3MdhZDShVji8EJOXn84PsfzQQEtBn6gfCSkZ=s288-c-no" alt="saonbd">' +
+        '<div><span class="detail-author">saonbd</span> &nbsp;\u00b7&nbsp; ' + p.date + ' &nbsp;\u00b7&nbsp; ' + p.read + '</div>' +
+      '</div>' +
+      '<div class="post-content">' + p.content + '</div>' +
+      (relatedArr.length > 0 ? '<div class="related"><div class="related-title">Continue reading</div><div class="related-grid">' + relatedHtml + '</div></div>' : '');
+
     showPage('post');
   }
 
@@ -1178,6 +1329,187 @@ PrivateKey = &lt;your-private-key&gt;</code></pre>
       }
     });
   }
+
+  // ── Dashboard ─────────────────────────────────
+  const DASH_KEY = 'techtips2026';
+  let editingPostId = 'new';
+
+  function openDashboard() {
+    if (sessionStorage.getItem('techtips_auth') !== 'true') {
+      const key = prompt('Enter dashboard passphrase:');
+      if (key !== DASH_KEY) {
+        if (key !== null) alert('Wrong passphrase.');
+        return;
+      }
+      sessionStorage.setItem('techtips_auth', 'true');
+    }
+    populateDashPostSelector();
+    loadPostIntoForm('new');
+    showPage('dashboard');
+  }
+
+  function populateDashPostSelector() {
+    const sel = document.getElementById('dash-post-select');
+    const ids = Object.keys(posts);
+    ids.sort((a, b) => new Date(posts[b].date).getTime() - new Date(posts[a].date).getTime());
+
+    sel.innerHTML = '<option value="new">+ New Post</option>';
+    ids.forEach(id => {
+      const opt = document.createElement('option');
+      opt.value = id;
+      opt.textContent = posts[id].title;
+      sel.appendChild(opt);
+    });
+    sel.value = editingPostId;
+  }
+
+  function loadPostIntoForm(id) {
+    editingPostId = id;
+    const deleteBtn = document.getElementById('dash-delete-btn');
+    document.getElementById('dash-status').textContent = '';
+
+    // Reset tag chips
+    document.querySelectorAll('.dash-tag-chip').forEach(c => c.classList.remove('selected'));
+
+    if (id === 'new') {
+      document.getElementById('dash-title').value = '';
+      document.getElementById('dash-excerpt').value = '';
+      document.getElementById('dash-read').value = '';
+      document.getElementById('dash-date').value = formatTodayDate();
+      document.getElementById('dash-content').value = '';
+      deleteBtn.style.display = 'none';
+    } else {
+      const p = posts[id];
+      if (!p) return;
+      document.getElementById('dash-title').value = p.title || '';
+      document.getElementById('dash-excerpt').value = p.excerpt || '';
+      document.getElementById('dash-read').value = p.read || '';
+      document.getElementById('dash-date').value = p.date || '';
+      document.getElementById('dash-content').value = (p.content || '').trim();
+
+      // Set tag chips
+      p.tags.forEach(t => {
+        const chip = document.querySelector('.dash-tag-chip[data-tag="' + t.cls + '"]');
+        if (chip) chip.classList.add('selected');
+      });
+
+      // Only allow deleting localStorage-only posts
+      const isHardcoded = HARDCODED_IDS.includes(Number(id));
+      deleteBtn.style.display = isHardcoded ? 'none' : '';
+    }
+  }
+
+  function toggleDashTag(el) {
+    el.classList.toggle('selected');
+  }
+
+  function formatTodayDate() {
+    const d = new Date();
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function getSelectedTags() {
+    const tags = [];
+    document.querySelectorAll('.dash-tag-chip.selected').forEach(chip => {
+      const cls = chip.dataset.tag;
+      const label = chip.textContent;
+      tags.push({ cls: cls, label: label });
+    });
+    return tags;
+  }
+
+  function saveDashPost() {
+    const title = document.getElementById('dash-title').value.trim();
+    const content = document.getElementById('dash-content').value.trim();
+    const status = document.getElementById('dash-status');
+
+    if (!title) { status.textContent = 'Title is required.'; status.style.color = '#c62828'; return; }
+    if (!content) { status.textContent = 'Content is required.'; status.style.color = '#c62828'; return; }
+
+    const post = {
+      tags: getSelectedTags(),
+      title: title,
+      excerpt: document.getElementById('dash-excerpt').value.trim(),
+      date: document.getElementById('dash-date').value.trim() || formatTodayDate(),
+      read: document.getElementById('dash-read').value.trim() || '5 min read',
+      content: content,
+      related: []
+    };
+
+    // Preserve featured flag if editing a featured post
+    if (editingPostId !== 'new' && posts[editingPostId] && posts[editingPostId].featured) {
+      post.featured = true;
+    }
+
+    const id = editingPostId === 'new' ? Date.now().toString() : editingPostId;
+    posts[id] = post;
+    saveToLocalStorage(id, post);
+    renderPostList();
+
+    editingPostId = id;
+    populateDashPostSelector();
+
+    // Show delete btn for non-hardcoded
+    const isHardcoded = HARDCODED_IDS.includes(Number(id));
+    document.getElementById('dash-delete-btn').style.display = isHardcoded ? 'none' : '';
+
+    status.style.color = 'var(--accent)';
+    status.textContent = '\u2713 Post saved!';
+  }
+
+  function deleteDashPost() {
+    if (!editingPostId || editingPostId === 'new') return;
+    if (HARDCODED_IDS.includes(Number(editingPostId))) return;
+    if (!confirm('Delete this post? This cannot be undone.')) return;
+
+    delete posts[editingPostId];
+    removeFromLocalStorage(editingPostId);
+    renderPostList();
+
+    editingPostId = 'new';
+    loadPostIntoForm('new');
+    populateDashPostSelector();
+
+    const status = document.getElementById('dash-status');
+    status.style.color = '#c62828';
+    status.textContent = 'Post deleted.';
+  }
+
+  function previewDashPost() {
+    const title = document.getElementById('dash-title').value.trim();
+    const content = document.getElementById('dash-content').value.trim();
+    if (!title || !content) {
+      const status = document.getElementById('dash-status');
+      status.style.color = '#c62828';
+      status.textContent = 'Title and content are required for preview.';
+      return;
+    }
+
+    posts['preview'] = {
+      tags: getSelectedTags(),
+      title: title,
+      excerpt: document.getElementById('dash-excerpt').value.trim(),
+      date: document.getElementById('dash-date').value.trim() || formatTodayDate(),
+      read: document.getElementById('dash-read').value.trim() || '5 min read',
+      content: content,
+      related: []
+    };
+    showPost('preview');
+  }
+
+  // ── Boot ───────────────────────────────────────
+  loadLocalStoragePosts();
+  renderPostList();
+
+  // Hash-based dashboard access
+  function checkHash() {
+    if (location.hash === '#dashboard') {
+      openDashboard();
+    }
+  }
+  window.addEventListener('hashchange', checkHash);
+  checkHash();
 </script>
 
 </body>
