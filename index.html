@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Techtips.Fun — Real tech, real experience</title>
+<meta name="description" content="Techtips.Fun — honest tech write-ups on Linux, web dev, AI tools, privacy, and dev workflows. No fluff, no sponsored jargon.">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -535,6 +536,11 @@
     font-style: italic;
     line-height: 1.8;
   }
+  .post-content img {
+    border-radius: 6px;
+    margin: 24px 0;
+    width: 100%;
+  }
   .post-content ul, .post-content ol {
     padding-left: 24px;
     margin-bottom: 20px;
@@ -1026,7 +1032,7 @@
   }
 
   // ── Post data ─────────────────────────────────
-  const HARDCODED_IDS = [1,2,3,4,5,6];
+  const HARDCODED_IDS = [1,2,3,4,5,6,7];
   let posts = {
     1: {
       tags: [{ cls: 'linux', label: 'linux' }, { cls: 'tips', label: 'tips' }],
@@ -1034,7 +1040,6 @@
       excerpt: 'After years of daily Linux use, these are the commands that actually saved me time \u2014 not the ones every listicle keeps recycling.',
       date: 'March 27, 2026',
       read: '8 min read',
-      featured: true,
       content: `
         <p>I\u2019ve been using Linux as my daily driver for over five years. In that time, I\u2019ve collected dozens of commands \u2014 but the ones below are the ones that actually stuck. These aren\u2019t the flashy ones from \u201ctop 100 Linux commands\u201d listicles. These are the quiet workhorses.</p>
         <h2>1. <code>tldr</code> \u2014 man pages for humans</h2>
@@ -1222,6 +1227,99 @@ PrivateKey = &lt;your-private-key&gt;</code></pre>
         <p>The moment I stopped treating them as competitors and started seeing them as different tools for different jobs, my CSS got dramatically cleaner.</p>
       `,
       related: [2, 5]
+    },
+    7: {
+      tags: [{ cls: 'ai', label: 'AI' }, { cls: 'tools', label: 'tools' }],
+      title: 'Top free AI models you can use right now in 2026',
+      excerpt: 'From Meta\u2019s Llama 4 to DeepSeek-R1 and Google\u2019s Gemma 3 \u2014 these open-source AI models are free, powerful, and ready to run on your own hardware.',
+      date: 'April 3, 2026',
+      read: '11 min read',
+      featured: true,
+      content: `
+        <img src="free-ai-models-2026.png" alt="Top free open-source AI models in 2026 \u2014 illustrated with neural network nodes and AI chip icons">
+        <p>The AI landscape has shifted dramatically. You no longer need a $200/month API subscription to access state-of-the-art language models. In 2026, the best free and open-source AI models rival \u2014 and in some cases surpass \u2014 their proprietary counterparts. I\u2019ve been running these locally and through free API tiers for months. Here are the ones that actually deliver.</p>
+
+        <h2>1. Llama 4 \u2014 Meta\u2019s flagship open model</h2>
+        <p>Meta\u2019s Llama 4 family is the most widely deployed open-source LLM in the world. The <strong>Llama 4 Scout</strong> variant offers a staggering <strong>10 million token context window</strong> \u2014 enough to feed it an entire codebase or a full-length novel in one go.</p>
+        <ul>
+          <li><strong>Parameters:</strong> Available from 8B to 405B</li>
+          <li><strong>Best for:</strong> General-purpose tasks, long-document analysis, coding</li>
+          <li><strong>License:</strong> Llama Community License (free for most commercial use)</li>
+          <li><strong>Run locally:</strong> 8B model runs on a 16GB GPU; 70B needs ~40GB VRAM</li>
+        </ul>
+        <p>The 70B variant is my daily driver for code reviews and documentation generation. It handles complex multi-file reasoning better than most paid APIs I\u2019ve tried.</p>
+
+        <h2>2. DeepSeek-R1 \u2014 the reasoning specialist</h2>
+        <p>DeepSeek-R1 brought chain-of-thought reasoning to the open-source world. It doesn\u2019t just give you an answer \u2014 it <strong>shows its work</strong>, step by step, like a math tutor who actually cares.</p>
+        <ul>
+          <li><strong>Parameters:</strong> 671B (MoE, ~37B active)</li>
+          <li><strong>Best for:</strong> Math, logic puzzles, complex coding problems</li>
+          <li><strong>License:</strong> MIT \u2014 fully open, no restrictions</li>
+          <li><strong>Standout:</strong> Comparable to OpenAI\u2019s o1 on reasoning benchmarks</li>
+        </ul>
+        <pre><code># Run DeepSeek-R1 distilled model locally with Ollama
+ollama run deepseek-r1:8b</code></pre>
+        <p>The distilled 8B and 14B variants run on consumer hardware and still produce impressively structured reasoning chains.</p>
+
+        <h2>3. Qwen 3.5 \u2014 the dark horse from Alibaba</h2>
+        <p>Qwen has quietly become one of the most capable open model families. The <strong>Qwen 3.5 122B</strong> uses a Mixture-of-Experts architecture, meaning only a fraction of parameters activate per query \u2014 making it fast despite its size.</p>
+        <ul>
+          <li><strong>Parameters:</strong> 122B MoE (many sizes available down to 0.5B)</li>
+          <li><strong>Best for:</strong> Multilingual tasks, coding, creative writing</li>
+          <li><strong>License:</strong> Apache 2.0 \u2014 the most permissive option</li>
+          <li><strong>Standout:</strong> Beats GPT-4-mini on several benchmarks</li>
+        </ul>
+        <p>If you need a model that works well in languages beyond English, Qwen is your best bet. Its multilingual performance is genuinely impressive.</p>
+
+        <h2>4. Google Gemma 3 \u2014 built for your device</h2>
+        <p>Gemma 3 is Google\u2019s answer to the \u201crun AI on anything\u201d challenge. The models range from <strong>1B to 27B parameters</strong> and are specifically optimized to run on phones, laptops, and edge devices.</p>
+        <ul>
+          <li><strong>Parameters:</strong> 1B, 4B, 12B, 27B</li>
+          <li><strong>Best for:</strong> On-device inference, multimodal (text + vision from 4B+)</li>
+          <li><strong>License:</strong> Gemma Terms of Use (free for most use cases)</li>
+          <li><strong>Standout:</strong> The 4B model runs on a phone and understands images</li>
+        </ul>
+        <pre><code># Run Gemma 3 locally
+ollama run gemma3:12b</code></pre>
+        <p>I run the 12B variant on my laptop for quick local queries when I\u2019m offline. It\u2019s fast, capable, and the multimodal support is a nice bonus.</p>
+
+        <h2>5. Mistral Large 2 \u2014 Europe\u2019s contender</h2>
+        <p>Mistral has been punching above its weight since day one. <strong>Mistral Large 2</strong> supports 80+ languages, offers a 128K context window, and is the go-to for anyone concerned about GDPR compliance.</p>
+        <ul>
+          <li><strong>Parameters:</strong> 123B</li>
+          <li><strong>Best for:</strong> Multilingual enterprise use, European compliance</li>
+          <li><strong>License:</strong> Apache 2.0</li>
+          <li><strong>Standout:</strong> Top-tier function calling and structured output</li>
+        </ul>
+        <p>The smaller <strong>Mistral Nemo 12B</strong> is an excellent lightweight option if you don\u2019t need the full model. Runs well on a single GPU.</p>
+
+        <h2>6. Phi-4 \u2014 Microsoft\u2019s small-but-mighty model</h2>
+        <p>Microsoft\u2019s Phi-4 proves that size isn\u2019t everything. At just <strong>14B parameters</strong>, it delivers reasoning performance that rivals models 10x its size.</p>
+        <ul>
+          <li><strong>Parameters:</strong> 14B</li>
+          <li><strong>Best for:</strong> Local deployment, reasoning tasks, education</li>
+          <li><strong>License:</strong> MIT</li>
+          <li><strong>Standout:</strong> Fits in 8GB VRAM with quantization</li>
+        </ul>
+        <p>If you have limited hardware but want strong reasoning capabilities, Phi-4 is the model to try first.</p>
+
+        <h2>How to run these models for free</h2>
+        <p>You don\u2019t need a cloud subscription. Here are three ways to run open-source models on your own machine:</p>
+        <ul>
+          <li><strong><a href="https://ollama.com">Ollama</a></strong> \u2014 the easiest way. One command to download and run any model. Works on Mac, Linux, and Windows.</li>
+          <li><strong><a href="https://lmstudio.ai">LM Studio</a></strong> \u2014 a desktop app with a clean UI. Great for trying different models without touching the terminal.</li>
+          <li><strong><a href="https://jan.ai">Jan</a></strong> \u2014 open-source, privacy-first. Runs entirely offline with a ChatGPT-like interface.</li>
+        </ul>
+        <pre><code># Install Ollama and run Llama 4 in one go
+curl -fsSL https://ollama.com/install.sh | sh
+ollama run llama4:scout-8b</code></pre>
+
+        <h2>The bottom line</h2>
+        <p>The gap between open-source and proprietary AI models has effectively closed for most use cases. Unless you need frontier-level performance on the hardest benchmarks, these free models will handle everything you throw at them \u2014 coding, writing, analysis, reasoning, and even vision tasks.</p>
+        <blockquote>The best AI model in 2026 isn\u2019t the most expensive one \u2014 it\u2019s the one you can run on your own terms.</blockquote>
+        <p>Stop paying for API calls. Download a model, run it locally, own your data. The future of AI is open.</p>
+      `,
+      related: [3, 5]
     }
   };
 
