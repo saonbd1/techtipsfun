@@ -160,17 +160,10 @@
     color: var(--text-3);
   }
   .hero-meta .avatar {
-    width: 36px;
-    height: 36px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-3), var(--accent));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--head);
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: white;
+    object-fit: cover;
     flex-shrink: 0;
   }
   .hero-meta-text { display: flex; flex-direction: column; gap: 2px; }
@@ -494,9 +487,7 @@
   }
   .detail-avatar {
     width: 32px; height: 32px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-3), var(--accent));
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--head); font-weight: 700; font-size: 0.72rem; color: white;
+    object-fit: cover;
   }
   .detail-author { font-weight: 600; color: var(--text); }
 
@@ -603,9 +594,7 @@
   .about-header { margin-bottom: 48px; }
   .about-avatar-lg {
     width: 80px; height: 80px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-3), var(--accent));
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--head); font-weight: 700; font-size: 1.8rem; color: white;
+    object-fit: cover;
     margin-bottom: 24px;
   }
   .about-name {
@@ -704,7 +693,7 @@
       No fluff, no sponsored jargon — just honest write-ups from someone who actually uses this stuff every day.
     </p>
     <div class="hero-meta">
-      <div class="avatar">S</div>
+      <img class="avatar" src="https://lh3.googleusercontent.com/a/ACg8ocL4o7Za_4IoiVWY3MdhZDShVji8EJOXn84PsfzQQEtBn6gfCSkZ=s288-c-no" alt="saonbd">
       <div class="hero-meta-text">
         <span class="hero-meta-name">saonbd</span>
         <span>Writing about Linux, web, tools & more</span>
@@ -887,7 +876,7 @@
 <div class="page" id="page-about">
   <div class="about-page">
     <div class="about-header">
-      <div class="about-avatar-lg">S</div>
+      <img class="about-avatar-lg" src="https://lh3.googleusercontent.com/a/ACg8ocL4o7Za_4IoiVWY3MdhZDShVji8EJOXn84PsfzQQEtBn6gfCSkZ=s288-c-no" alt="saonbd">
       <div class="about-name">saonbd</div>
       <div class="about-handle">@saonbd · techtips.fun</div>
     </div>
@@ -1161,7 +1150,7 @@ PrivateKey = &lt;your-private-key&gt;</code></pre>
       <div class="detail-tags">${tagsHtml}</div>
       <h1 class="detail-title">${p.title}</h1>
       <div class="detail-meta">
-        <div class="detail-avatar">S</div>
+        <img class="detail-avatar" src="https://lh3.googleusercontent.com/a/ACg8ocL4o7Za_4IoiVWY3MdhZDShVji8EJOXn84PsfzQQEtBn6gfCSkZ=s288-c-no" alt="saonbd">
         <div>
           <span class="detail-author">saonbd</span> &nbsp;·&nbsp;
           ${p.date} &nbsp;·&nbsp; ${p.read}
